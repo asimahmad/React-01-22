@@ -25,6 +25,15 @@ export default function TextForm(props) {
             })
         }
     }
+    const handleCopy = () =>{
+        let text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    // const handleExtraSpaces = () =>{
+    //     let newText = text.split(/[]+/);
+    //     setText(newText.join(" "));
+    // }
     const [textStyle, setTextStyle] = useState();
     const [text, setText] = useState('');
     const [counter, setCounter] = useState(1);
@@ -38,8 +47,10 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary mx-2 my-1" onClick={handleupClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-2 my-1" onClick={handlelowClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleClear}>Clear text</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleClear}>Clear Text</button>
         <button className="btn btn-primary mx-2 my-1" onClick={()=>{handlemakeBold() ;setCounter(counter+1);}}>Bold</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleCopy}>Copy Text</button>
+        {/* <button className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button> */}
 
     </div>
     <div className="container my-3">
